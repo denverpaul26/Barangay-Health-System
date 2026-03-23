@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Barangay Health Center</title>
+    <link rel="stylesheet" href="../../css/reg-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Schedule</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user"></i>
+                <a href="../../pages/auth/login.html">
+                    <button class="btn-login">Login</button>
+                </a>
+        </div>
+    </header>
+
+    <div class="reg-wrapper">
+        <div class="reg-card">
+            <h1>New Patient Registration</h1>
+
+            <form>
+                <h3 class="section-title">Personal Information</h3>
+                <div class="grid-container">
+                    <div class="col-left">
+                        <div class="input-box">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter your first name">
+                        </div>
+                        <div class="input-box">
+                            <label>Middle Name</label>
+                            <input type="text" placeholder="Enter your middle name">
+                        </div>
+                        <div class="input-box">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Enter your last name">
+                        </div>
+                        <div class="input-box">
+                            <label>Date of Birth</label>
+                            <input type="date">
+                        </div>
+                        <div class="sub-grid">
+                            <div class="input-box">
+                                <label>Gender</label>
+                                <select>
+                                    <option>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-right">
+                        <div class="input-box">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Email Address">
+                        </div>
+                        <div class="sub-grid">
+                            <div class="input-box">
+                                <label>Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" placeholder="Password">
+                                    <i class="far fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" placeholder="Password">
+                                    <i class="far fa-eye-slash"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p class="footer-text">Barangay Health Center</p>
+    </div>
+
+</body>
+</html>
