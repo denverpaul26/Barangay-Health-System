@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Barangay Health Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="#services-section">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Schedule</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <i class="fas fa-search"></i>
+            <i class="far fa-user"></i>
+            <a href="{{ url_for('register') }}">
+                <button class="btn-register">Register</button>
+            </a>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Barangay <br> Health Center</span>
+                </div>
+                <h2>User Login</h2>
+            </div>
+
+            <form class="login-form" method="POST" action="{{ url_for('login') }}">
+                <div class="input-group">
+                    <label>Email address</label>
+                    <input type="email" name="email" placeholder="e.g., user.name@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-login">Login</button>
+                </div>
+
+                <div class="form-footer">
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                    <a href="{{ url_for('register') }}" class="register-link">
+                        Create new account <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </form>
+        
+            <footer class="login-footer">
+                <p>Barangay Health Center</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
