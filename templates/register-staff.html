@@ -15,7 +15,7 @@
                 <span>Barangay <br> Health Center</span>
             </div>
             <nav>
-                <a href="#">Home</a>
+                <a href="{{ url_for('home') }}">Home</a>
                 <a href="#">Services</a>
                 <a href="#">About Us</a>
                 <a href="#">Schedule</a>
@@ -25,7 +25,7 @@
                 <i class="fas fa-search"></i>
                 <i class="far fa-user"></i>
                     <a href="{{ url_for('login') }}">
-                        <button class="btn-login-float">Login</button>
+                        <button class="btn-login">Login</button>
                     </a>
             </div>
         </header>
