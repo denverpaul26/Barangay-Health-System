@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments - Barangay Health Center</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient/my-appointments-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <a href="{{ url_for('profile') }}" class="user-profile-link">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ patient_name }}</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('profile') }}" class="nav-item"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="{{ url_for('book_appointment') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                <a href="{{ url_for('my_appointments') }}" class="nav-item"><i class="fas fa-list-ol"></i> My Appointment</a>
+                <a href="{{ url_for('queue') }}" class="nav-item"><i class="fas fa-bell"></i> Queue Status</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-file-medical"></i> Notifications</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-content-area">
+            <div class="header-container-flex">
+                <div class="header-text">
+                    <h1>MY APPOINTMENTS</h1>
+                    <p class="description">Track and manage your scheduled health center visits.</p>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <div class="table-container">
+                    <table class="appointment-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Service</th>
+                                <th>Health Worker</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for appt in appointments %}
+                            <tr>
+                                <td class="fw-bold">{{ appt.date.strftime('%b %d, %Y') }}</td>
+                                <td>{{ appt.time }}</td>
+                                <td>{{ appt.service_type }}</td>
+                                <td>{{ appt.staff_name or 'TBD' }}</td>
+                                <td>
+                                    <span class="badge status-{{ appt.status|lower }}">
+                                        {{ appt.status }}
+                                    </span>
+                                </td>
+                                <td class="action-cell">
+                                    <a href="{{ url_for('appointment_details', appt_id=appt.id) }}" class="btn-icon">
+                                        <i class="fas fa-eye"></i><span>View</span>
+                                    </a>
+
+                                    {% if appt.status == "Cancelled" %}
+                                    <form action="{{ url_for('delete_appointment', appointment_id=appt.id) }}" method="POST" class="inline-form">
+                                        <button type="submit" class="btn-danger btn-sm">Delete</button>
+                                    </form>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <footer class="footer-simple">
+                    Barangay Health Center © 2026
+                </footer>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

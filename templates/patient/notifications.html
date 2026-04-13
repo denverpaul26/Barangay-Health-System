@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | Barangay Health Center</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient/notifications-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <a href="{{ url_for('profile') }}" class="user-profile-link">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ patient_name }}</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('profile') }}" class="nav-item"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="{{ url_for('book_appointment') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                <a href="{{ url_for('my_appointments') }}" class="nav-item"><i class="fas fa-list-ol"></i> My Appointment</a>
+                <a href="{{ url_for('queue') }}" class="nav-item"><i class="fas fa-bell"></i> Queue Status</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-file-medical"></i> Notifications</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-content-area">
+            <div class="header-text">
+                <h1>Notifications</h1>
+                <p class="description">Stay updated with your latest health center activities.</p>
+            </div>
+
+            <div class="notifications-container">
+                <div class="notif-card unread">
+                    <div class="notif-icon-box blue">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="notif-content">
+                        <div class="notif-header">
+                            <h3 class="notif-title">Appointment Confirmed</h3>
+                            <span class="notif-time">Just now</span>
+                        </div>
+                        <p class="notif-desc">Your appointment with <strong>Dr. Sarah Lee</strong> for Pediatrics has been successfully confirmed for Oct 28.</p>
+                    </div>
+                    <div class="unread-dot"></div>
+                </div>
+
+                <div class="notif-card unread">
+                    <div class="notif-icon-box orange">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="notif-content">
+                        <div class="notif-header">
+                            <h3 class="notif-title">New Health Announcement</h3>
+                            <span class="notif-time">2 hours ago</span>
+                        </div>
+                        <p class="notif-desc">Free Flu Shot Drive starts next Monday at the main hall. No appointment necessary for seniors.</p>
+                    </div>
+                    <div class="unread-dot"></div>
+                </div>
+
+                <div class="notif-card">
+                    <div class="notif-icon-box green">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <div class="notif-content">
+                        <div class="notif-header">
+                            <h3 class="notif-title">Schedule Updated</h3>
+                            <span class="notif-time">Yesterday</span>
+                        </div>
+                        <p class="notif-desc">Your previous consultation record has been updated by the attending nurse.</p>
+                    </div>
+                </div>
+
+                <div class="notif-card">
+                    <div class="notif-icon-box gray">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="notif-content">
+                        <div class="notif-header">
+                            <h3 class="notif-title">Profile Update</h3>
+                            <span class="notif-time">3 days ago</span>
+                        </div>
+                        <p class="notif-desc">You have successfully updated your emergency contact information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer-simple">
+                Barangay Health Center © 2026
+            </footer>
+        </main>
+        
+    </div>
+
+</body>
+</html>

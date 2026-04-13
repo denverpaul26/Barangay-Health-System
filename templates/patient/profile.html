@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile | Barangay Health Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient/profile-style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <a href="{{ url_for('profile') }}" class="user-profile-link">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ patient_name }}</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('profile') }}" class="nav-item"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="{{ url_for('book_appointment') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                <a href="{{ url_for('my_appointments') }}" class="nav-item"><i class="fas fa-list-ol"></i> My Appointment</a>
+                <a href="{{ url_for('queue') }}" class="nav-item"><i class="fas fa-bell"></i> Queue Status</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-file-medical"></i> Notifications</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-panel">
+            <div class="header-text">
+                <h1>MY PROFILE</h1>
+                <p class="description">Manage your personal and medical information.</p>
+            </div>
+            
+            <div class="avatar-container">
+                <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+                <button type="button" class="upload-btn">
+                    <i class="fas fa-upload"></i> Upload photo
+                </button>
+            </div>
+
+            <form class="profile-form">
+                <div class="form-column">
+                    <h3 class="section-title">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First name</label>
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Middle name</label>
+                            <input type="text" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 2;">
+                            <label>Birthday</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Civil Status</label>
+                            <select class="form-control">
+                                <option>Select...</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" placeholder="Enter Address">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Religion</label>
+                            <input type="text" class="form-control" placeholder="Religion">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="text" class="form-control" placeholder="09XX-XXX-XXXX">
+                        </div>
+                    </div>
+
+                    <h3 class="section-title" style="margin-top: 2rem;">Emergency Information</h3>
+                    <div class="form-group">
+                        <label>Emergency Contact Name</label>
+                        <input type="text" class="form-control" placeholder="Full Name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Relationship</label>
+                            <select class="form-control">
+                                <option>Select...</option>
+                                <option>Spouse</option>
+                                <option>Parent</option>
+                                <option>Sibling</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="text" class="form-control" placeholder="09XX-XXX-XXXX">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-column">
+                    <h3 class="section-title">Medical Information</h3>
+                    <div class="form-group">
+                        <label>Past Medical Conditions</label>
+                        <textarea class="form-control" style="height: 100px;" placeholder="Type medical conditions..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Medications</label>
+                        <textarea class="form-control" style="height: 100px;" placeholder="Type current medications..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Family Medical History</label>
+                        <textarea class="form-control" style="height: 100px;" placeholder="Type family medical history..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Blood Type</label>
+                            <select class="form-control">
+                                <option>Select...</option>
+                                <option>A+</option>
+                                <option>O+</option>
+                                <option>B+</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Allergies</label>
+                            <input type="text" class="form-control" placeholder="e.g. Peanuts">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="button" class="btn btn-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-save">Save changes</button>
+                </div>
+            </form>
+
+            <footer class="content-footer">
+                Barangay Health Center © 2026
+            </footer>       
+        </main>
+    </div>
+</body>
+</html>

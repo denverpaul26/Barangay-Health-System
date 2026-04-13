@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Barangay Health Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/staff-dashboard-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-hand-holding-medical"></i>
+                <span>Barangay <br> Health Center</span>
+            </div>
+        </div>
+        <nav class="center-nav">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Patients</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>Dr. {{ staff_name }}</span>
+                <a href="{{ url_for('logout') }}" class="logout-link">→ Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar-nav">
+            <a href="{{ url_for('staff_dashboard') }}" class="nav-item active"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="{{ url_for('patient_records') }}" class="nav-item"><i class="fas fa-users"></i> Patient Records</a>
+            <a href="{{ url_for('appointment_management') }}" class="nav-item"><i class="fas fa-calendar-check"></i> Appointment Management</a>
+            <a href="{{ url_for('queue_management') }}" class="nav-item"><i class="fas fa-list-ol"></i> Queue Management</a>
+            <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="{{ url_for('reports') }}" class="nav-item"><i class="fas fa-file-alt"></i> Reports</a>
+            <div class="sidebar-footer">
+                <a href="{{ url_for('logout') }}" class="nav-item logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="staff-content">
+            <div class="portal-header">
+                <h1 class="portal-title">Barangay Health Center Appointment & Scheduling System - Staff Portal</h1>
+                <p class="welcome-text">Welcome, <strong>Dr. {{ staff_name }}</strong>. Viewing today's dashboard and key data.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Total Appointments Today</span>
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <h2 class="stat-number">28</h2>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Total Patients Waiting</span>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2 class="stat-number highlight-red">14</h2>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Current Queue Number</span>
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h2 class="stat-number">12</h2>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Completed Consultations</span>
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h2 class="stat-number">6</h2>
+                </div>
+            </div>
+
+            <div class="content-columns">
+                <div class="col-main shadow-card">
+                    <h3 class="section-title">Today's Appointments</h3>
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Appointment</th>
+                                <th>Service Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Patient Name</td><td>09:00 AM</td><td>Service</td></tr>
+                            <tr><td>Patient Name</td><td>12:30 AM</td><td>Service</td></tr>
+                            <tr><td>Patient Name</td><td>12:00 AM</td><td>Service</td></tr>
+                            <tr><td>Patient Name</td><td>12:30 AM</td><td>Pharmacology</td></tr>
+                            <tr><td>Patient Name</td><td>10:30 AM</td><td>Service</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <a href="#"><i class="fas fa-chevron-left"></i></a>
+                        <a href="#" class="page-num active">1</a>
+                        <a href="#" class="page-num">2</a>
+                        <a href="#" class="page-num">3</a>
+                        <a href="#" class="page-num">4</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-side shadow-card">
+                    <h3 class="section-title">Queue Status</h3>
+                    <div class="now-serving-box">
+                        <p class="muted">Now serving Number</p>
+                        <h2 class="now-num">#5</h2>
+                        <p class="muted">Estimated Waiting Time</p>
+                        <p class="wait-time"><strong>0.1 minutes</strong></p>
+                    </div>
+                    <table class="mini-table">
+                        <thead>
+                            <tr>
+                                <th>Waiting List</th>
+                                <th>Serving</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Staff 1</td><td>14</td></tr>
+                            <tr><td>Staff 2</td><td>11</td></tr>
+                            <tr><td>Staff 3</td><td>6</td></tr>
+                            <tr><td>Staff 4</td><td>7</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-side shadow-card">
+                    <h3 class="section-title">Announcements</h3>
+                    <div class="announcement-list">
+                        <div class="announcement-item">
+                            <p class="ann-title">Current Health Center Announcements</p>
+                            <hr>
+                        </div>
+                        <div class="announcement-item">
+                            <p class="ann-title">Current Health Center Announcements</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-simple">
+        Barangay Health Center <span class="year-stamp">© 2026</span>
+    </footer>
+
+</body>
+</html>

@@ -49,6 +49,15 @@
                 <div class="input-group">
                     <label>Password</label>
                     <input type="password" name="password" placeholder="••••••••" required>
+
+                    <!-- Error message -->
+                    {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                        {% if messages %}
+                            <div class="error-message">
+                                {{ messages[0] }}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
                 </div>
 
                 <div class="button-group">

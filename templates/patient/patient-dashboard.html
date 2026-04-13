@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | Barangay Health Center</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient/patient-dashboard-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <a href="{{ url_for('profile') }}" class="user-profile-link">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ patient_name }}</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('profile') }}" class="nav-item"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="{{ url_for('book_appointment') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                <a href="{{ url_for('my_appointments') }}" class="nav-item"><i class="fas fa-list-ol"></i> My Appointment</a>
+                <a href="{{ url_for('queue') }}" class="nav-item"><i class="fas fa-bell"></i> Queue Status</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-file-medical"></i> Notifications</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-content-area">
+            <div class="header-container-flex">
+                <div class="header-text">
+                    <h1>DASHBOARD</h1>
+                    <p class="description">Welcome back, {{ patient_name }}.</p>
+                </div>
+            </div>
+
+            <div class="summary-cards-grid">
+                <div class="content-box summary-card">
+                    <h2 class="card-title">Appointment Summary</h2>
+                    <div class="summary-row">
+                        <div class="highlight-stat-box">
+                            <span class="highlight-number">2</span>
+                            <p class="stat-label">Upcoming</p>
+                        </div>
+                        <div class="highlight-stat-box">
+                            <span class="highlight-number">10</span>
+                            <p class="stat-label">Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-box summary-card">
+                    <h2 class="card-title">Queue Status</h2>
+                    <div class="queue-info">
+                        <div class="queue-details-col">
+                            <div class="queue-row">
+                                <p class="detail-label">Queue Position:</p>
+                                <span class="hl-num">03</span>
+                            </div>
+                            <p class="detail-label">Est. Wait Time:</p>
+                            <span class="highlight-number">25 mins.</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="content-box summary-card">
+                    <h2 class="card-title">Notifications</h2>
+                    <div class="notif-content">
+                        <div class="notif-header-row">
+                            <span class="highlight-number">5</span>
+                            <p class="stat-label">New Messages</p>
+                        </div>
+                        <div class="quick-notif-list">
+                            <p class="notif-item">Appt. Confirmed (15m ago)</p>
+                            <p class="notif-item">New Announcement (2h ago)</p>
+                            <p class="notif-item">Schedule Update (4h ago)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-views-grid">
+                <div class="details-main-col">
+                    <div class="content-box next-appt-card">
+                        <h2 class="card-title">Next Appointment</h2>
+                        <div class="appt-detail-row">
+                            <p class="detail-value fw-bold">Dr. Sarah Lee</p>
+                            <p class="detail-value muted-label">Pediatrics • Oct 28, 9:00 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="content-box">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <ul class="activity-list">
+                            <li>Appointment booked for General Consultation</li>
+                            <li>Profile information updated successfully</li>
+                            <li>New notification regarding flu vaccines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-box announcements-sidebar">
+                    <h2 class="card-title">Announcements</h2>
+                    <ul class="announcements-list">
+                        <li><strong>Flu Shot Drive:</strong> Starts next Monday at the main hall.</li>
+                        <li><strong>Heart Health:</strong> Free screening this Friday.</li>
+                        <li><strong>Holiday Notice:</strong> Center closed on Nov 1st.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="footer-simple">
+                Barangay Health Center © 2026
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

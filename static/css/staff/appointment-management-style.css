@@ -1,0 +1,74 @@
+:root {
+    --navy: #1e3a5f;
+    --slate: #334155;
+    --red: #b91c1c;
+    --border: #e2e8f0;
+    --hover-bg: #f1f5f9;
+}
+
+body { margin: 0; font-family: 'Inter', sans-serif; background: radial-gradient(circle, #ffffff 0%, #e0f2fe 100%); min-height: 100vh; color: #1e293b; }
+
+/* Clickable Indicators */
+.clickable { cursor: pointer; }
+.nav-link:hover { color: var(--navy); text-decoration: underline; }
+
+/* Header */
+.main-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; border-bottom: 1px solid var(--border); }
+.logo { font-weight: 800; font-size: 0.85rem; color: var(--navy); line-height: 1.2; }
+.center-nav a { text-decoration: none; color: #64748b; margin: 0 15px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+
+/* Sidebar Interactivity */
+.portal-container { display: flex; padding: 25px 40px; gap: 30px; }
+.sidebar { width: 260px; background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.nav-item { display: flex; align-items: center; gap: 12px; padding: 12px; text-decoration: none; color: #1e293b; font-size: 0.85rem; font-weight: 600; border-radius: 8px; margin-bottom: 5px; transition: 0.2s; }
+.nav-item:hover:not(.active) { background: var(--hover-bg); }
+.nav-item.active { background: var(--navy); color: white; cursor: default; }
+
+/* Card Styling */
+.floating-card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+.info-grid-top { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid #f1f5f9; padding-bottom: 20px; margin-bottom: 25px; }
+.patient-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+
+/* Labels & Data */
+label { display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.id-text { font-size: 2.2rem; font-weight: 800; }
+.data-text { font-size: 1.2rem; font-weight: 600; }
+.patient-name-display, .time-display { font-size: 2.5rem; font-weight: 800; color: #111; }
+.text-right { text-align: right; }
+
+/* Patient Notes - Input Tag Style */
+.notes-area { margin-bottom: 35px; }
+.notes-input {
+    width: 100%;
+    min-height: 100px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #334155;
+    resize: vertical; /* User can expand it vertically */
+    outline: none;
+    transition: all 0.2s;
+}
+.notes-input:focus {
+    border-color: var(--navy);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+}
+
+/* Clickable Buttons */
+.button-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.btn { padding: 15px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: filter 0.2s, transform 0.1s; }
+.btn:active { transform: translateY(1px); }
+.btn:hover { filter: brightness(90%); }
+
+.approve { background: var(--navy); color: white; }
+.reschedule { background: var(--slate); color: white; }
+.cancel { background: var(--red); color: white; }
+.complete-btn { width: 100%; background: #0f172a; color: white; font-size: 1.1rem; padding: 18px; margin-top: 10px; }
+
+.portal-footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #94a3b8; }
+.copyright { float: right; margin-right: 5%; }

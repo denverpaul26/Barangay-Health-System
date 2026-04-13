@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Reports Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/reports-style.css">
+</head>
+<body class="staff-portal-body">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-hand-holding-medical"></i>
+                <div class="logo-text">Barangay <br> <span>Health Center</span></div>
+            </div>
+        </div>
+        <nav class="center-nav">
+            <a href="#">Home</a><a href="#">Services</a><a href="#">Register</a><a href="#">Blog</a><a href="#">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span class="staff-name">Dr. {{ staff_name }}</span>
+                <a href="../logout.html" class="logout-link">→ Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="portal-container">
+        <aside class="sidebar">
+            <div class="nav-menu">
+                <a href="../staff/staff-dashboard.html" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="../staff/patient-records.html" class="nav-item"><i class="fas fa-id-card"></i> Patient Records</a>
+                <a href="../staff/appointment-management.html" class="nav-item"><i class="fas fa-calendar-alt"></i> Appointment Management</a>
+                <a href="../staff/queue-management.html" class="nav-item"><i class="fas fa-list-ol"></i> Queue Management</a>
+                <a href="../staff/notifications.html" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="../staff/reports.html" class="nav-item active"><i class="fas fa-file-medical"></i> Reports</a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="../logout.html" class="nav-item logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            <h1 class="portal-main-title">Barangay Health Center Appointment & Scheduling System - Staff Portal</h1>
+            <p class="portal-subtitle">Welcome, Dr. {{ staff_name }}. Generate and export reports with detailed report priorities.</p>
+
+            <section class="content-panel shadow-soft">
+                <h2 class="content-title">Reports Center</h2>
+
+                <div class="reports-toolbar">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="custom-input" placeholder="Search Reports by type, period, or name...">
+                    </div>
+                    
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info">
+                                <span class="stat-label">DAILY PATIENT COUNT</span>
+                                <span class="stat-value">28</span>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-info">
+                                <span class="stat-label">APPOINTMENT STATISTICS</span>
+                                <div class="stat-sub">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span class="stat-value">14</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="staff-table">
+                    <thead>
+                        <tr>
+                            <th>Report Type <br> <span class="header-num">0</span></th>
+                            <th>Subject / Message Excerpt</th>
+                            <th>Report Period <br> (if applicable)</th>
+                            <th>Timestamp <br> <span class="header-num">2</span></th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-file-medical"></i> Service Usage Analysis...</td>
+                            <td>Analysis of last month's data...</td>
+                            <td>Past Month</td>
+                            <td>1 hour ago</td>
+                            <td class="action-cell">
+                                <button class="btn-sq b-slate"><i class="fas fa-file-alt"></i></button>
+                                <button class="btn-sq b-navy"><i class="fas fa-eye"></i></button>
+                                <button class="btn-sq b-red"><i class="fas fa-external-link-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        Barangay Health Center <span class="copy">© 2026</span>
+    </footer>
+
+</body>
+</html>

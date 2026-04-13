@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Appointment Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/appointment-management-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="staff-portal-body">
+
+    <header class="main-header">
+        <div class="logo clickable" onclick="location.href='dashboard.html'">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <nav class="center-nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Patients</a>
+            <a href="#" class="nav-link">Blog</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <div class="user-profile-mini">
+            <i class="fas fa-user-circle"></i>
+            <span class="staff-name">Dr. {{ staff_name }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-link">→ Logout</a>
+        </div>
+    </header>
+
+    <div class="portal-container">
+        <aside class="sidebar">
+            <div class="nav-links">
+                <a href="{{ url_for('staff_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('patient_records') }}" class="nav-item"><i class="fas fa-id-card"></i> Patient Records</a>
+                <a href="{{ url_for('appointment_management') }}" class="nav-item active"><i class="fas fa-calendar-check"></i> Appointment Management</a>
+                <a href="{{ url_for('queue_management') }}" class="nav-item"><i class="fas fa-list-ol"></i> Queue Management</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="{{ url_for('reports') }}" class="nav-item"><i class="fas fa-file-medical"></i> Reports</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-link-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Barangay Health Center Appointment & Scheduling System - Staff Portal</h1>
+                <p class="welcome-msg">Welcome, Dr. {{ staff_name }}. Search and manage patient records with comprehensive search priorities.</p>
+            </div>
+
+            <div class="floating-card">
+                <div class="info-grid-top">
+                    <div class="info-block">
+                        <label>Appointment ID:</label>
+                        <h2 class="id-text">#A-1011</h2>
+                    </div>
+                    <div class="info-block">
+                        <label>Service Type</label>
+                        <p class="data-text">Prenatal Checkup</p>
+                    </div>
+                    <div class="info-block">
+                        <label>Appointment Date</label>
+                        <p class="data-text">October 28, 2024</p>
+                    </div>
+                </div>
+
+                <div class="patient-row">
+                    <div class="info-block">
+                        <label>Patient Name:</label>
+                        <h2 class="patient-name-display">{{ patient_name }}</h2>
+                    </div>
+                    <div class="info-block text-right">
+                        <label>Appointment Time</label>
+                        <h2 class="time-display">09:00 AM</h2>
+                    </div>
+                </div>
+
+                <div class="notes-area">
+                    <label>Patient Notes (Section)</label>
+                    <textarea class="notes-input" placeholder="Enter consultation notes or patient observations here...">e.g., "Patient reports minor morning sickness. Check blood pressure."</textarea>
+                </div>
+
+                <div class="button-grid">
+                    <button class="btn approve"><i class="far fa-check-square"></i> Approve Appointment</button>
+                    <button class="btn reschedule"><i class="far fa-calendar-alt"></i> Reschedule Appointment</button>
+                    <button class="btn cancel"><i class="far fa-window-close"></i> Cancel Appointment</button>
+                </div>
+                <button class="btn complete-btn"><i class="fas fa-clipboard-check"></i> Mark Consultation as Completed</button>
+            </div>
+        </main>
+    </div>
+
+    <footer class="portal-footer">
+        Barangay Health Center <span class="copyright">© 2026</span>
+    </footer>
+
+</body>
+</html>

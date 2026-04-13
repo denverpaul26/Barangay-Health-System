@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Notifications Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/queue-management-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="staff-portal-body">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-hand-holding-medical"></i>
+                <div class="logo-text">Barangay <br> <span>Health Center</span></div>
+            </div>
+        </div>
+        <nav class="center-nav">
+            <a href="#">Home</a><a href="#">Services</a><a href="#">Patients</a><a href="#">Blog</a><a href="#">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span class="staff-name">Dr. {{ staff_name }}</span>
+                <a href="../logout.html" class="logout-link">→ Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="portal-container">
+        <aside class="sidebar">
+            <div class="nav-menu">
+                <a href="../staff/staff-dashboard.html" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="../staff/patient-records.html" class="nav-item"><i class="fas fa-id-card"></i> Patient Records</a>
+                <a href="../staff/appointment-management.html" class="nav-item"><i class="fas fa-calendar-alt"></i> Appointment Management</a>
+                <a href="../staff/queue-management.html" class="nav-item"><i class="fas fa-list-ol"></i> Queue Management</a>
+                <a href="../staff/notifications.html" class="nav-item active"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="../staff/reports.html" class="nav-item"><i class="fas fa-file-medical"></i> Reports</a>
+            </div>
+
+            <div class="sidebar-divider"></div>
+            
+            <div class="sidebar-bottom-section">
+                <p class="section-label">Notification Type</p>
+                <button class="pill-btn p-green"><i class="fas fa-calendar-check"></i> Appt. Chang. Change</button>
+                <button class="pill-btn p-orange"><i class="fas fa-exclamation-triangle"></i> System Alert</button>
+                <button class="pill-btn p-orange"><i class="fas fa-exclamation-triangle"></i> System Alert</button>
+                <button class="pill-btn p-grey"><i class="fas fa-sync-alt"></i> Schedule Update</button>
+                
+                <a href="../logout.html" class="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            <h1 class="portal-main-title">Barangay Health Center Appointment & Scheduling System - Staff Portal</h1>
+            <p class="portal-subtitle">Welcome, Dr. {{ staff_name }}. Send and manage patient notifications with clear priorities.</p>
+
+            <section class="content-panel shadow-soft">
+                <h2 class="content-title">Notifications Center</h2>
+
+                <div class="toolbar">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="custom-input" placeholder="Search Notifications by title, type, patient...">
+                    </div>
+                    <div class="action-btn-group">
+                        <button class="btn-navy"><i class="fas fa-paper-plane"></i> Send Notification to Patient</button>
+                        <button class="btn-navy"><i class="fas fa-eye"></i> View Notifications</button>
+                    </div>
+                </div>
+
+                <table class="staff-data-table">
+                    <thead>
+                        <tr>
+                            <th>Subject / Message Excerpt <br> <span class="stat-num">10</span></th>
+                            <th>Patient Name <br> (if applicable)</th>
+                            <th>Timestamp <br> <span class="stat-num">2</span></th>
+                            <th class="centered">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Appointment confirmation for #A-1011...</td>
+                            <td>[Patient Full Name]</td>
+                            <td>2 hours ago</td>
+                            <td class="action-cell">
+                                <button class="sq-btn bg-slate"><i class="fas fa-file-alt"></i></button>
+                                <button class="sq-btn bg-navy"><i class="fas fa-eye"></i></button>
+                                <button class="sq-btn bg-red"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer class="system-footer">
+        Barangay Health Center <span class="copyright">© 2026</span>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Patient Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient-records-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="staff-body">
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <nav class="center-nav">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Patients</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="user-profile-mini">
+            <i class="fas fa-user-circle"></i>
+            <span>Dr. {{ staff_name }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-link">→ Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('staff_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('patient_records') }}" class="nav-item active"><i class="fas fa-id-card"></i> Patient Records</a>
+                <a href="{{ url_for('appointment_management') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Appointment Management</a>
+                <a href="{{ url_for('queue_management') }}" class="nav-item"><i class="fas fa-list-ol"></i> Queue Management</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="{{ url_for('reports') }}" class="nav-item"><i class="fas fa-file-medical"></i> Reports</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-panel">
+            <div class="header-text">
+                <h1>Barangay Health Center Appointment & Scheduling System - Staff Portal</h1>
+                <p class="description">Welcome, Dr. {{ staff_name }}. Search and manage patient records with comprehensive search priorities.</p>
+            </div>
+
+            <div class="records-grid">
+                <div class="column">
+                    <div class="glass-card">
+                        <h3>Patient Information Panel</h3>
+                        <div class="field"><label>Full Name:</label> <div class="val-box">{{ patient_name }}</div></div>
+                        <div class="field"><label>Age: [e.g., 34] Years</label></div>
+                        <div class="field"><label>Gender: [e.g., Male/Female/Other]</label></div>
+                        <div class="field"><label>Address: [Detailed street address, barangay, city]</label></div>
+                        <div class="field"><label>Contact Number:</label> <div class="val-box">[e.g., 0917-123-4567]</div></div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3>Medical Information Panel</h3>
+                        <div class="field"><label>Blood Type: [Dropdown with A+, B-, etc.]</label></div>
+                        <div class="field"><label>Allergies: [List e.g., Penicillin, Peanuts]</label></div>
+                        <div class="field"><label>Medical Conditions:</label> <div class="val-box">[List e.g., Hypertension, Type 2 Diabetes]</div></div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="glass-card scrollable">
+                        <h3>Consultation History & Actions</h3>
+                        <div class="field"><label>Date of Consultation:</label> <div class="val-box">[Date e.g., Oct 28, 2024]</div></div>
+                        <div class="field"><label>Service Type:</label> <p>[e.g., Prenatal Checkup]</p></div>
+                        <div class="field"><label>Health Worker:</label> <p>[e.g., Dr. Sarah Lee]</p></div>
+                        <div class="field"><label>Notes:</label> <p>[e.g., Routine checkup, no issues.]</p></div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3>Actions Panel</h3>
+                        <button class="btn-main"><i class="fas fa-plus-square"></i> Add Consultation Record</button>
+                        <button class="btn-sub"><i class="fas fa-edit"></i> Update Medical Record</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bottom-footer">Barangay Health Center <span>© 2026</span></footer>
+</body>
+</html>

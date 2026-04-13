@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Status - Barangay Health Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient/queue-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-hand-holding-medical"></i>
+            <span>Barangay <br> Health Center</span>
+        </div>
+        <a href="{{ url_for('profile') }}" class="user-profile-link">
+            <div class="user-profile-mini">
+                <i class="fas fa-user-circle"></i>
+                <span>{{ patient_name }}</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="nav-list">
+                <a href="{{ url_for('patient_dashboard') }}" class="nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="{{ url_for('profile') }}" class="nav-item"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="{{ url_for('book_appointment') }}" class="nav-item"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                <a href="{{ url_for('my_appointments') }}" class="nav-item"><i class="fas fa-list-ol"></i> My Appointment</a>
+                <a href="{{ url_for('queue') }}" class="nav-item"><i class="fas fa-bell"></i> Queue Status</a>
+                <a href="{{ url_for('notifications') }}" class="nav-item"><i class="fas fa-file-medical"></i> Notifications</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="nav-item logout-bottom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </aside>
+
+        <main class="main-panel">
+            <div class="header-text">
+                <h1>QUEUE STATUS</h1>
+                <p class="description">Check your current position in the queue and estimated wait time.</p>
+            </div>
+
+            <div class="queue-grid">
+                <div class="status-card">
+                    <span class="status-label">Your Position</span>
+                    <div class="highlight-number">03</div>
+                    <p class="status-subtext">Patients ahead of you: <strong>2</strong></p>
+                </div>
+                
+                <div class="status-card">
+                    <span class="status-label">Est. Wait Time</span>
+                    <div class="highlight-number accent-color">25</div>
+                    <p class="status-subtext">Minutes remaining</p>
+                </div>
+
+                <div class="status-card">
+                    <span class="status-label">Current Serving</span>
+                    <div class="highlight-number">01</div>
+                    <p class="status-subtext">Room: Consultation A</p>
+                </div>
+            </div>
+
+            <footer class="content-footer">
+                Barangay Health Center © 2026
+            </footer>
+        </main>
+    </div>
+
+</body>
+</html>
